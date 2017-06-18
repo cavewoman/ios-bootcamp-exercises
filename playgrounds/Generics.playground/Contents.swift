@@ -3,14 +3,13 @@
 import UIKit
 
 struct StackIterator<T>: IteratorProtocol {
-    typealias Element = T
     var stack: Stack<T>
-    mutating func next() -> Element? {
+    mutating func next() -> T? {
         return stack.pop()
     }
 }
 
-struct Stack<Element> {
+struct Stack<Element>: Sequence {
     var items = [Element]()
     
     mutating func push(_ newItem: Element) {
@@ -24,12 +23,22 @@ struct Stack<Element> {
         return items.removeLast()
     }
     
+    mutating func pushAll(_ array: [Element]) {
+        for item in array {
+            self.push(item)
+        }
+    }
+    
     func map<U>(_ f: (Element) -> U) -> Stack<U> {
         var mappedItems = [U]()
         for item in items {
             mappedItems.append(f(item))
         }
         return Stack<U>(items: mappedItems)
+    }
+    
+    func makeIterator() -> StackIterator<Element> {
+        return StackIterator(stack: self)
     }
 }
 
@@ -91,6 +100,14 @@ while let value = myStackIterator.next() {
     print("got \(value)")
 }
 
+for value in myStack {
+    print("for-in loop: got \(value)")
+}
+
+myStack.pushAll([1, 2, 3])
+for value in myStack {
+    print("after pushing: got \(value)")
+}
 
 
 
