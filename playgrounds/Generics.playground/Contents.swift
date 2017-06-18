@@ -23,8 +23,8 @@ struct Stack<Element>: Sequence {
         return items.removeLast()
     }
     
-    mutating func pushAll(_ array: [Element]) {
-        for item in array {
+    mutating func pushAll<S: Sequence>(_ sequence: S) where S.Iterator.Element == Element {
+        for item in sequence {
             self.push(item)
         }
     }
@@ -109,8 +109,12 @@ for value in myStack {
     print("after pushing: got \(value)")
 }
 
-
-
+var myOtherStack = Stack<Int>()
+myOtherStack.pushAll([1,2,3])
+myStack.pushAll(myOtherStack)
+for value in myStack {
+    print("after pushing items onto stack, got \(value)")
+}
 
 
 
