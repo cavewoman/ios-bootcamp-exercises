@@ -20,6 +20,7 @@ struct Car {
     let year: Int
     let color: String
     let nickname: String
+    let numberOfDoors: Int
     var gasLevel: Double {
         willSet {
             precondition(newValue <= 1.0 && newValue >= 0.0,
@@ -30,23 +31,23 @@ struct Car {
 
 extension Car: Vehicle {
     var topSpeed: Velocity { return 180 }
-    var numberOfDoors: Int { return 4 }
     var hasFlatbed: Bool { return false }
 }
 
 extension Car {
-    init(make: String, model: String, year: Int) {
+    init(make: String, model: String, year: Int, numberOfDoors: Int) {
         self.init(make: make,
             model: model,
             year: year,
             color: "Black",
             nickname: "N/A",
+            numberOfDoors: numberOfDoors,
             gasLevel: 1.0
         )
     }
 }
 
-var c = Car(make: "Ford", model: "Fusion", year: 2013)
+var c = Car(make: "Ford", model: "Fusion", year: 2013, numberOfDoors: 4)
 
 extension Car {
     enum Kind {
