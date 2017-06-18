@@ -52,11 +52,24 @@ class Product2: CustomStringConvertible {
 }
 
 // Examples from Book (Chapter 19 Protocols)
-func printTable(_ data: [[String]]) {
+func printTable(_ data: [[String]], withColumnLabels columnLabels: String...) {
+    var firstRow = "|"
+    
+    var columnWidths = [Int]()
+    
+    for columnLabel in columnLabels {
+        let columnHeader = "\(columnLabel) |"
+        firstRow += columnHeader
+        columnWidths.append(columnLabel.characters.count)
+    }
+    print(firstRow)
+    
     for row in data {
         var out = "|"
-        for item in row {
-            out += "\(item) |"
+        for (j, item) in row.enumerated() {
+            let paddingNeeded = columnWidths[j] - item.characters.count
+            let padding = repeatElement(" ", count: paddingNeeded).joined(separator: "")
+            out += "\(padding)\(item) |"
         }
         
         print(out)
@@ -69,4 +82,4 @@ let data = [
     ["Karen", "40", "18"],
     ["Fred", "50", "20"]
 ]
-printTable(data)
+printTable(data, withColumnLabels: "Employee Name", "Age", "Years of Experience")
