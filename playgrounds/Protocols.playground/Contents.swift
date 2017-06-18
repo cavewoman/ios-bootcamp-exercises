@@ -52,7 +52,7 @@ class Product2: CustomStringConvertible {
 }
 
 // Examples from Book (Chapter 19 Protocols)
-protocol TabularDataSource {
+protocol TabularDataSource: CustomStringConvertible {
     var numberOfRows: Int { get }
     var numberOfColumns: Int { get }
     
@@ -93,7 +93,7 @@ struct Person {
     let yearsOfExperience: Int
 }
 
-struct Department: TabularDataSource, CustomStringConvertible {
+struct Department: TabularDataSource {
     let name: String
     var people = [Person]()
     
