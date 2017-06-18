@@ -61,7 +61,8 @@ protocol TabularDataSource: CustomStringConvertible {
 }
 
 
-func printTable(_ dataSource: TabularDataSource) {
+func printTable(_ dataSource: TabularDataSource & CustomStringConvertible) {
+    print("Table: \(dataSource.description)")
     var firstRow = "|"
     
     var columnWidths = [Int]()
