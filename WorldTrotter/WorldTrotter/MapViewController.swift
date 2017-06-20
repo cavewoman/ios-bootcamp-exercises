@@ -9,9 +9,8 @@
 import UIKit
 import MapKit
 
-class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class MapViewController: UIViewController, MKMapViewDelegate {
     var mapView: MKMapView!
-    var locationManager: CLLocationManager
 
     
     override func viewDidLoad() {
@@ -50,10 +49,10 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         zoomTopConstraint.isActive = true
         zoomLeadingConstraint.isActive = true
         
-        locationManager = CLLocationManager()
-        locationManager.delegate = self;
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        locationManager.distanceFilter = kCLLocationAccuracyKilometer;
+//        locationManager = CLLocationManager()
+//        locationManager.delegate = self;
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+//        locationManager.distanceFilter = kCLLocationAccuracyKilometer;
         // showing user location with the blue dot
 //        [mapView setShowsUserLocation:YES];
 //        
