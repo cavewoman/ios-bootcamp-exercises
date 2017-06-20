@@ -9,17 +9,20 @@
 import UIKit
 
 class QuizViewController: UIViewController {
-    @IBOutlet var questionLabel: UILabel!
+    @IBOutlet var currentQuestionLabel: UILabel!
+    @IBOutlet var nextQuestionLabel: UILabel!
     @IBOutlet var answerLabel: UILabel!
     @IBAction func didPressShowQuestionButton(_ sender: UIButton) {
         currentQuestionIndex += 1
-
+        
         if currentQuestionIndex >= questionsAndAnswers.count {
             currentQuestionIndex = 0
         }
         let (question, _) = questionsAndAnswers[currentQuestionIndex]
-        questionLabel.text = question
+        nextQuestionLabel.text = question
         answerLabel.text = "???"
+        
+        animateLabelTransitions()
     }
     @IBAction func didPressShowAnswerButton(_ sender: UIButton) {
         let (_, answer) = questionsAndAnswers[currentQuestionIndex]
@@ -40,8 +43,26 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let (question, _) = questionsAndAnswers[currentQuestionIndex]
-        questionLabel.text = question
+        currentQuestionLabel.text = question
         answerLabel.text = "???"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        nextQuestionLabel.alpha = 0
+    }
+    
+    func animateLabelTransitions() {
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       options: [],
+                       animations: {
+                        self.currentQuestionLabel.alpha = 0
+                        self.nextQuestionLabel.alpha = 1
+        },
+                       completion: { _ in
+                        swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
+        })
     }
     
 }
