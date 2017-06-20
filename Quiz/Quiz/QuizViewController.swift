@@ -36,7 +36,7 @@ class QuizViewController: UIViewController {
         ("Is a hot dog a sandwich?", "It's a sandwich"),
         ("Do you want to fanta fanta?", "Yes"),
         ("Where's the beef?", "Under the pickle"),
-        ("How many licks in a Tootsie roll tootsie pop?", "3"),
+        ("How many licks in a Tootsie roll tootsie pop? How many licks in a Tootsie roll tootsie pop? How many licks in a Tootsie roll tootsie pop? How many licks in a Tootsie roll tootsie pop?", "3"),
         ("How many animals does Joseph have on his farm?", "~100")
     ]
     
@@ -66,7 +66,7 @@ class QuizViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       usingSpringWithDamping: 0.7,
+                       usingSpringWithDamping: 0.5,
                        initialSpringVelocity: 0.5,
                        options: [.curveLinear],
                        animations: {
