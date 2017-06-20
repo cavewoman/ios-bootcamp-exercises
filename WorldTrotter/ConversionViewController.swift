@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionViewController: UIViewController {
+class ConversionViewController: UIViewController, UITextFieldDelegate {
     var isDayTime: Bool = true
 
     @IBOutlet var celsiusLabel: UILabel!

@@ -14,6 +14,7 @@
 		D3BCE2241EF8465400121721 /* ConversionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCE2231EF8465400121721 /* ConversionViewController.swift */; };
 		D3BCE2271EF85A6200121721 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3BCE2261EF85A6200121721 /* MapKit.framework */; };
 		D3BCE2291EF85D7200121721 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCE2281EF85D7200121721 /* MapViewController.swift */; };
+		D3BCE22B1EF8820C00121721 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BCE22A1EF8820C00121721 /* WebViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D3BCE2231EF8465400121721 /* ConversionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConversionViewController.swift; path = ../ConversionViewController.swift; sourceTree = "<group>"; };
 		D3BCE2261EF85A6200121721 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D3BCE2281EF85D7200121721 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		D3BCE22A1EF8820C00121721 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D3BCE2231EF8465400121721 /* ConversionViewController.swift */,
 				D3BCE2111EF8274000121721 /* AppDelegate.swift */,
 				D3BCE2151EF8274000121721 /* Main.storyboard */,
+				D3BCE22A1EF8820C00121721 /* WebViewController.swift */,
 				D3BCE2281EF85D7200121721 /* MapViewController.swift */,
 				D3BCE2181EF8274000121721 /* Assets.xcassets */,
 				D3BCE21A1EF8274000121721 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 				D3BCE2241EF8465400121721 /* ConversionViewController.swift in Sources */,
 				D3BCE2291EF85D7200121721 /* MapViewController.swift in Sources */,
 				D3BCE2121EF8274000121721 /* AppDelegate.swift in Sources */,
+				D3BCE22B1EF8820C00121721 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

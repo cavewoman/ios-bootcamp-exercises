@@ -10,6 +10,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--BNR-->
+        <scene sceneID="qCp-aD-4ls">
+            <objects>
+                <viewController id="XS4-C0-qce" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="svC-dA-C1R"/>
+                        <viewControllerLayoutGuide type="bottom" id="zfJ-LA-cpU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="f72-Si-oWo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="BNR" image="icons8-Web-35" id="dCJ-wd-IDP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eg1-rY-UzN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118" y="-1133"/>
+        </scene>
         <!--Convert-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -98,19 +117,15 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="118" y="-202"/>
         </scene>
         <!--Map-->
         <scene sceneID="Jfw-2s-8P2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhj-av-wd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="vSu-Yd-oZ0" customClass="MapViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="jSh-zS-C2t">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
                     <tabBarItem key="tabBarItem" title="Map" image="MapIcon" id="oNR-Ke-mNF"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhj-av-wd5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="118" y="818"/>
         </scene>
@@ -126,15 +141,17 @@
                     <connections>
                         <segue destination="vSu-Yd-oZ0" kind="relationship" relationship="viewControllers" id="R3H-IU-qM5"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FID-Ue-LZV"/>
+                        <segue destination="XS4-C0-qce" kind="relationship" relationship="viewControllers" id="FoY-GI-bNv"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KAU-cX-aPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-927" y="407"/>
+            <point key="canvasLocation" x="-2169" y="-203"/>
         </scene>
     </scenes>
     <resources>
         <image name="ConvertIcon" width="48" height="32"/>
         <image name="MapIcon" width="48" height="32"/>
+        <image name="icons8-Web-35" width="35" height="35"/>
     </resources>
 </document>
