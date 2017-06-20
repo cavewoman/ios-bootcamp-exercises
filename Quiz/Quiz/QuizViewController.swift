@@ -66,6 +66,8 @@ class QuizViewController: UIViewController {
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.5,
                        options: [.curveLinear],
                        animations: {
                         self.currentQuestionLabel.alpha = 0
