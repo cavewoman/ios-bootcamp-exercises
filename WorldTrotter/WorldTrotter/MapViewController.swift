@@ -18,8 +18,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         
         view = mapView
         mapViewWillStartLocatingUser(mapView)
+        
+        let standardString = NSLocalizedString("Standard", comment: "Standard map view")
+        let satelliteString = NSLocalizedString("Satellite", comment: "Satellit map view")
+        let hybridString = NSLocalizedString("Hybrid", comment: "Hybrid map view")
 
-        let segmentedControl = UISegmentedControl(items: ["Standard", "Hybrid", "Satellite"])
+        let segmentedControl = UISegmentedControl(items: [standardString, hybridString, satelliteString])
         segmentedControl.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         segmentedControl.selectedSegmentIndex = 0
         
@@ -37,17 +41,17 @@ class MapViewController: UIViewController, MKMapViewDelegate {
         leadingConstraint.isActive = true
         trailingConstraint.isActive = true
         
-        let zoomToLocationButton = UIButton(type: .system)
-        zoomToLocationButton.setTitle("Location", for: .normal)
-        zoomToLocationButton.addTarget(self, action: #selector(locationButtonTapped(_:)), for: .touchUpInside)
-        
-        zoomToLocationButton.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(zoomToLocationButton)
-        
-        let zoomTopConstraint = zoomToLocationButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8)
-        let zoomLeadingConstraint = zoomToLocationButton.leadingAnchor.constraint(equalTo: segmentedControl.leadingAnchor)
-        zoomTopConstraint.isActive = true
-        zoomLeadingConstraint.isActive = true
+//        let zoomToLocationButton = UIButton(type: .system)
+//        zoomToLocationButton.setTitle("Location", for: .normal)
+//        zoomToLocationButton.addTarget(self, action: #selector(locationButtonTapped(_:)), for: .touchUpInside)
+//        
+//        zoomToLocationButton.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(zoomToLocationButton)
+//        
+//        let zoomTopConstraint = zoomToLocationButton.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 8)
+//        let zoomLeadingConstraint = zoomToLocationButton.leadingAnchor.constraint(equalTo: segmentedControl.leadingAnchor)
+//        zoomTopConstraint.isActive = true
+//        zoomLeadingConstraint.isActive = true
         
 //        locationManager = CLLocationManager()
 //        locationManager.delegate = self;

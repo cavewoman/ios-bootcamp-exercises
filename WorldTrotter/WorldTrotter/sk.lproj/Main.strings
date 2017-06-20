@@ -1,0 +1,24 @@
+
+/* Class = "UILabel"; text = "100"; ObjectID = "3g5-SM-hZt"; */
+"3g5-SM-hZt.text" = "100";
+
+/* Class = "UITabBarItem"; title = "Convert"; ObjectID = "797-CF-rOc"; */
+"797-CF-rOc.title" = "Premeniť";
+
+/* Class = "UILabel"; text = "degrees Celsius"; ObjectID = "Cbm-Aj-JBe"; */
+"Cbm-Aj-JBe.text" = "Stupňov Celzias";
+
+/* Class = "UILabel"; text = "degrees Fahrenheit"; ObjectID = "Mad-Zl-ZvA"; */
+"Mad-Zl-ZvA.text" = "Stupňov Fahrenheita";
+
+/* Class = "UILabel"; text = "is really"; ObjectID = "PDa-zB-Uw3"; */
+"PDa-zB-Uw3.text" = "je naozaj";
+
+/* Class = "UITextField"; placeholder = "value"; ObjectID = "YG3-YW-l1L"; */
+"YG3-YW-l1L.placeholder" = "hodnota";
+
+/* Class = "UITabBarItem"; title = "BNR"; ObjectID = "dCJ-wd-IDP"; */
+"dCJ-wd-IDP.title" = "BNR";
+
+/* Class = "UITabBarItem"; title = "Map"; ObjectID = "oNR-Ke-mNF"; */
+"oNR-Ke-mNF.title" = "Mapa";
