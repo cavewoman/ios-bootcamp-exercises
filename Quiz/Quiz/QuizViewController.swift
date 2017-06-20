@@ -10,7 +10,9 @@ import UIKit
 
 class QuizViewController: UIViewController {
     @IBOutlet var currentQuestionLabel: UILabel!
+    @IBOutlet var currentQuestionLabelCenterXConstraint: NSLayoutConstraint!
     @IBOutlet var nextQuestionLabel: UILabel!
+    @IBOutlet var nextQuestionLabelCenterXConstraint: NSLayoutConstraint!
     @IBOutlet var answerLabel: UILabel!
     @IBAction func didPressShowQuestionButton(_ sender: UIButton) {
         currentQuestionIndex += 1
@@ -45,6 +47,8 @@ class QuizViewController: UIViewController {
         let (question, _) = questionsAndAnswers[currentQuestionIndex]
         currentQuestionLabel.text = question
         answerLabel.text = "???"
+        
+        updateOffScreenLabel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,16 +57,33 @@ class QuizViewController: UIViewController {
     }
     
     func animateLabelTransitions() {
+        view.layoutIfNeeded()
+        
+        let screenWidth = view.frame.width
+        self.nextQuestionLabelCenterXConstraint.constant = 0
+        self.currentQuestionLabelCenterXConstraint.constant += screenWidth
+        
+        
         UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       options: [],
+                       options: [.curveLinear],
                        animations: {
                         self.currentQuestionLabel.alpha = 0
                         self.nextQuestionLabel.alpha = 1
+                        
+                        self.view.layoutIfNeeded()
         },
                        completion: { _ in
                         swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
+                        swap(&self.currentQuestionLabelCenterXConstraint, &self.nextQuestionLabelCenterXConstraint)
+                        
+                        self.updateOffScreenLabel()
         })
+    }
+    
+    func updateOffScreenLabel() {
+        let screenWidth = view.frame.width
+        nextQuestionLabelCenterXConstraint.constant = -screenWidth
     }
     
 }

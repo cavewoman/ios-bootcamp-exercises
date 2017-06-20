@@ -61,7 +61,7 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Iqr-DA-Tvc" secondAttribute="trailing" id="Hly-w1-Unx"/>
                             <constraint firstItem="Iqr-DA-Tvc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="MXX-yh-kNe"/>
                             <constraint firstItem="0Xe-eM-KfL" firstAttribute="top" secondItem="Iqr-DA-Tvc" secondAttribute="bottom" constant="7" id="NDB-5O-f80"/>
-                            <constraint firstItem="0Xe-eM-KfL" firstAttribute="centerX" secondItem="pKc-qp-XKd" secondAttribute="centerX" id="Z2g-ZC-tdX"/>
+                            <constraint firstItem="0Xe-eM-KfL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Tr4-Pr-ref"/>
                             <constraint firstItem="0Xe-eM-KfL" firstAttribute="top" secondItem="pKc-qp-XKd" secondAttribute="bottom" constant="8" id="ZD9-9R-Xax"/>
                             <constraint firstItem="Iqr-DA-Tvc" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="dpu-ay-LdR"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="pKc-qp-XKd" secondAttribute="trailing" id="eei-vq-j3c"/>
@@ -80,7 +80,9 @@
                     <connections>
                         <outlet property="answerLabel" destination="DHq-zb-r6g" id="DJJ-yR-i1i"/>
                         <outlet property="currentQuestionLabel" destination="pKc-qp-XKd" id="efS-CL-cex"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="xxV-xU-MSi" id="kRo-sw-3V2"/>
                         <outlet property="nextQuestionLabel" destination="Iqr-DA-Tvc" id="2ia-n3-JBt"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="tmd-Eg-Pdb" id="cxr-BU-9mM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
