@@ -96,6 +96,12 @@ class ItemsViewController: UITableViewController {
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
             }
+        case "showDatepicker"?:
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let updateDateViewController = segue.destination as! UpdateDateViewController
+                updateDateViewController.item = item
+            }
         default:
             preconditionFailure("Unexpected segues identifier.")
         }

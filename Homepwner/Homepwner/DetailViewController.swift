@@ -61,6 +61,17 @@ class DetailViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showDatepicker"?:
+            let updateDateViewController = segue.destination as! UpdateDateViewController
+            updateDateViewController.item = item
+        default:
+            preconditionFailure("Unexpected segues identifier.")
+        }
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
