@@ -37,6 +37,9 @@ class ItemsViewController: UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeight, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 65
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,16 +47,20 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
         
         if indexPath.row != itemStore.allItems.count {
             let item = itemStore.allItems[indexPath.row]
             
-            cell.textLabel?.text = item.name
-            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+            cell.nameLabel.text = item.name
+            cell.serialNumberLabel.text = item.serialNumber
+            cell.valueLabel.text = "$\(item.valueInDollars)"
+            if (item.valueInDollars > 50) { cell.valueLabel.textColor = .green}
+            else { cell.valueLabel.textColor = .red }
         } else {
-            cell.textLabel?.text = "No more items!"
-            cell.detailTextLabel?.text = ""
+            cell.nameLabel.text = "No more items!"
+            cell.serialNumberLabel.text = ""
+            cell.valueLabel.text = ""
         }
         
         return cell
