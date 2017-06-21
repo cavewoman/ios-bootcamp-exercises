@@ -10,6 +10,7 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
     var itemStore: ItemStore!
+    var imageStore: ImageStore!
     
     @IBAction func addNewItem(_ sender: UIBarButtonItem) {
         let newItem = itemStore.createItem()
@@ -75,6 +76,7 @@ class ItemsViewController: UITableViewController {
                 
                 let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: {(action) -> Void in
                     self.itemStore.removeItem(item)
+                    self.imageStore.deleteImage(forKey: item.itemKey)
                     self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 })
                 ac.addAction(deleteAction)
@@ -95,12 +97,7 @@ class ItemsViewController: UITableViewController {
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destination as! DetailViewController
                 detailViewController.item = item
-            }
-        case "showDatepicker"?:
-            if let row = tableView.indexPathForSelectedRow?.row {
-                let item = itemStore.allItems[row]
-                let updateDateViewController = segue.destination as! UpdateDateViewController
-                updateDateViewController.item = item
+                detailViewController.imageStore = imageStore
             }
         default:
             preconditionFailure("Unexpected segues identifier.")

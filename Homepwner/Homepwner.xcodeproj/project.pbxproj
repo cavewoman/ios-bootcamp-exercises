@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D34264831EFAE28600DF0894 /* DynamicBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34264821EFAE28600DF0894 /* DynamicBorderedTextField.swift */; };
 		D34264851EFAE86B00DF0894 /* UpdateDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34264841EFAE86B00DF0894 /* UpdateDateViewController.swift */; };
+		D34264871EFAF63F00DF0894 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D34264861EFAF63F00DF0894 /* ImageStore.swift */; };
 		D3A71D241EF9BABA00A5BBDC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A71D231EF9BABA00A5BBDC /* AppDelegate.swift */; };
 		D3A71D261EF9BABA00A5BBDC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A71D251EF9BABA00A5BBDC /* ViewController.swift */; };
 		D3A71D291EF9BABA00A5BBDC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3A71D271EF9BABA00A5BBDC /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		D34264821EFAE28600DF0894 /* DynamicBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicBorderedTextField.swift; sourceTree = "<group>"; };
 		D34264841EFAE86B00DF0894 /* UpdateDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateDateViewController.swift; sourceTree = "<group>"; };
+		D34264861EFAF63F00DF0894 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 		D3A71D201EF9BABA00A5BBDC /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3A71D231EF9BABA00A5BBDC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3A71D251EF9BABA00A5BBDC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				D34264841EFAE86B00DF0894 /* UpdateDateViewController.swift */,
 				D34264821EFAE28600DF0894 /* DynamicBorderedTextField.swift */,
 				D3A86E3E1EFAC1A300BA33B7 /* DetailViewController.swift */,
+				D34264861EFAF63F00DF0894 /* ImageStore.swift */,
 				D3A71D531EF9BBEE00A5BBDC /* Item.swift */,
 				D3A71D551EF9BE2D00A5BBDC /* ItemStore.swift */,
 				D3A71D2A1EF9BABA00A5BBDC /* Assets.xcassets */,
@@ -286,6 +289,7 @@
 				D34264831EFAE28600DF0894 /* DynamicBorderedTextField.swift in Sources */,
 				D3A71D541EF9BBEE00A5BBDC /* Item.swift in Sources */,
 				D3A71D261EF9BABA00A5BBDC /* ViewController.swift in Sources */,
+				D34264871EFAF63F00DF0894 /* ImageStore.swift in Sources */,
 				D3A71D581EFAAA2200A5BBDC /* ItemCell.swift in Sources */,
 				D3A71D521EF9BB2100A5BBDC /* ItemsViewController.swift in Sources */,
 				D3A71D561EF9BE2D00A5BBDC /* ItemStore.swift in Sources */,
