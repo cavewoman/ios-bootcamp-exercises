@@ -40,39 +40,46 @@ class ItemsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return itemStore.allItems.count
+        return itemStore.allItems.count + 1
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
         
-        let item = itemStore.allItems[indexPath.row]
-        
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        if indexPath.row != itemStore.allItems.count {
+            let item = itemStore.allItems[indexPath.row]
+            
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        } else {
+            cell.textLabel?.text = "No more items!"
+            cell.detailTextLabel?.text = ""
+        }
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let item = itemStore.allItems[indexPath.row]
-            
-            let title = "Delete \(item.name)?"
-            let message = "Are you sure you want to delete this item?"
-            
-            let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
-            
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-            ac.addAction(cancelAction)
-            
-            let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: {(action) -> Void in
-                self.itemStore.removeItem(item)
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            })
-            ac.addAction(deleteAction)
-            
-            present(ac, animated: true, completion: nil)
+            if indexPath.row < itemStore.allItems.count {
+                let item = itemStore.allItems[indexPath.row]
+                
+                let title = "Delete \(item.name)?"
+                let message = "Are you sure you want to delete this item?"
+                
+                let ac = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                ac.addAction(cancelAction)
+                
+                let deleteAction = UIAlertAction(title: "Remove", style: .destructive, handler: {(action) -> Void in
+                    self.itemStore.removeItem(item)
+                    self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                })
+                ac.addAction(deleteAction)
+                
+                present(ac, animated: true, completion: nil)
+            }
         }
     }
     
