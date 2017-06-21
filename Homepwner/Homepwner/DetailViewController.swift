@@ -9,9 +9,9 @@
 import UIKit
 
 class DetailViewController: UIViewController, UITextFieldDelegate {
-    @IBOutlet var nameField: UITextField!
-    @IBOutlet var serialNumberField: UITextField!
-    @IBOutlet var valueField: UITextField!
+    @IBOutlet var nameField: DynamicBorderedTextField!
+    @IBOutlet var serialNumberField: DynamicBorderedTextField!
+    @IBOutlet var valueField: DynamicBorderedTextField!
     @IBOutlet var dateLabel: UILabel!
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
