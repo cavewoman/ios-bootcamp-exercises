@@ -14,6 +14,7 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
     @IBOutlet var valueField: DynamicBorderedTextField!
     @IBOutlet var dateLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
+    @IBOutlet var editorButtons: UIStackView!
     @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -27,7 +28,14 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         }
         
         imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func removePicture(_ sender: UIButton) {
+        let key = item.itemKey
+        imageStore.deleteImage(forKey: key)
+        imageView.image = nil
+        editorButtons.isHidden = true
     }
     
     var item: Item! {
@@ -62,7 +70,13 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         
         let key = item.itemKey
         let imageToDisplay = imageStore.image(forKey: key)
+        if (imageToDisplay != nil) {
+            editorButtons.isHidden = false
+        } else {
+            editorButtons.isHidden = true
+        }
         imageView.image = imageToDisplay
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,6 +114,9 @@ class DetailViewController: UIViewController, UITextFieldDelegate, UINavigationC
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         imageStore.setImage(image, forKey: item.itemKey)
         imageView.image = image
+        
+        editorButtons.isHidden = false
+        
         dismiss(animated: true, completion: nil)
     }
     
