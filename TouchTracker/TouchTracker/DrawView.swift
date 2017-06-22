@@ -9,12 +9,31 @@
 import UIKit
 
 class DrawView: UIView {
-    var currentLine: Line?
+    var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
+    
+    @IBInspectable var finishedLineColor: UIColor = UIColor.black {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var currentLineColor: UIColor = UIColor.red {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var lineThickness: CGFloat = 10 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
     
     func stroke(_ line: Line) {
         let path = UIBezierPath()
-        path.lineWidth = 10
+        path.lineWidth = lineThickness
         path.lineCapStyle = .round
         
         path.move(to: line.begin)
@@ -22,44 +41,88 @@ class DrawView: UIView {
         path.stroke()
     }
     
-    override func draw(_ rect: CGRect) {
-        UIColor.black.setStroke()
+    override func draw(_ rect: CGRect) {        
         for line in finishedLines {
+            getQuadColor(quad: line.quad).setStroke()
             stroke(line)
         }
         
-        if let line = currentLine {
-            UIColor.red.setStroke()
+        currentLineColor.setStroke()
+        for(_, line) in currentLines {
             stroke(line)
+        }
+    }
+    
+    func getQuadColor(quad: Int) -> UIColor {
+        switch quad {
+        case 1:
+            return UIColor.green
+        case 2:
+            return UIColor.yellow
+        case 3:
+            return UIColor.blue
+        default:
+            return UIColor.red
         }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
+        print(#function)
         
-        let location = touch.location(in: self)
-        currentLine = Line(begin: location, end: location)
+        for touch in touches {
+            let location = touch.location(in: self)
+            let newLine = Line(begin: location, end: location, quad: getQuad(beginP: location, endP: location))
+            let key = NSValue(nonretainedObject: touch)
+            currentLines[key] = newLine
+        }
+        
         setNeedsDisplay()
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        let location = touch.location(in: self)
+        print(#function)
         
-        currentLine?.end = location
+        for touch in touches {
+            let key = NSValue(nonretainedObject: touch)
+            currentLines[key]?.end = touch.location(in: self)
+        }
+        
         setNeedsDisplay()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if var line = currentLine {
-            let touch = touches.first!
-            let location = touch.location(in: self)
-            line.end = location
-            
-            finishedLines.append(line)
+        print(#function)
+        
+        for touch in touches {
+            let key = NSValue(nonretainedObject: touch)
+            if var line = currentLines[key] {
+                line.end = touch.location(in: self)
+                line.quad = getQuad(beginP: line.begin, endP: line.end)
+                finishedLines.append(line)
+                currentLines.removeValue(forKey: key)
+            }
         }
         
-        currentLine = nil
         setNeedsDisplay()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(#function)
+        
+        currentLines.removeAll()
+        setNeedsDisplay()
+    }
+    
+    func getQuad(beginP: CGPoint, endP: CGPoint) -> Int {
+        let (x, y) = (beginP.x - endP.x, beginP.y - endP.y)
+        if x >= 0 && y >= 0 {
+            return 1
+        } else if x < 0 && y > 0 {
+            return 2
+        } else if x < 0 && y < 0 {
+            return 3
+        } else {
+            return 4
+        }
     }
 }
